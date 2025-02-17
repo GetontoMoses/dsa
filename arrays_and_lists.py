@@ -1,7 +1,7 @@
 # to do list
 def show_tasks(tasks):
     if not tasks:
-        print("Sorry there are no tasks")
+        print("Sorry there are no tasks\n")
         
     else:
         print("Here are your tasks")
@@ -11,23 +11,34 @@ def show_tasks(tasks):
 
 def main():
     tasks = []
-
-    print(" options:\n add task = 1\n view tasks = 2\n delete task = 3")
-    option = int(input("Please select an option:\n"))
-
-    # add a task
-    if option == 1:
-        name = input("Enter the Task:\n")
-        tasks.append(name)
-    if option == 2:
-        name = input("Here are the Tasks in the list:\n")
-        show_tasks()
-    if option == 3:
-        name = int(input("Enter the Task to be removed:\n"))
-        tasks.remove(name)
-       
+    while True:
+        print(" options:\n add task = 1\n view tasks = 2\n delete task = 3\n Exit = 4")
+        option = int(input("Please select an option:\n"))
+    
+        # add a task
+        if option == 1:
+            name = input("Enter the Task:\n")
+            tasks.append(name)
             
-    else:
-        print("Invalid input: Please choose one option")
+            print(f"Task : {name} added.")
+            
+        #Search
+        elif option == 2:
+            show_tasks(tasks)
+            
+        #Remove task
+        elif option == 3:
+            show_tasks(tasks)
+            name = int(input("Enter the Task to be removed:\n"))
+            if 1<= name <=len(tasks):
+                removed = tasks.pop(name - 1)
+                print(f"{removed} : removed")
+        
+        elif option == 4:
+            print("Exiting TO - Do manager") 
+            break  
+                
+        else:
+            print("Invalid input: Try again")
 
 main()
