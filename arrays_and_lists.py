@@ -26,7 +26,7 @@ def main():
         elif option == 2:
             show_tasks(tasks)
             
-        #Remove task
+        #Remove tasks
         elif option == 3:
             show_tasks(tasks)
             name = int(input("Enter the Task to be removed:\n"))
